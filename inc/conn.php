@@ -5,4 +5,6 @@ $username = "root";
 $password = "";
 $database = "pengaduan_masyarakat";
 
-$koneksi = new mysqli($hostname, $username, $password, $database);
+$conn = new mysqli($hostname, $username, $password, $database);
+
+session_start();
