@@ -33,12 +33,12 @@ echo headElem('Tambah Aduan')
       <h1 class="text-3xl mb-8 text-center">Tambah Pengaduan</h1>
       <?php
       require "../components/inputDate.php";
-      require "../components/input.php";
+      require "../components/inputTextArea.php";
       require "../components/inputFile.php";
       require "../components/inputSelect.php";
       require "../components/submitBtn.php";
 
-      echo input('isi_laporan', 'text', 'Isi Laporan');
+      echo inputTextArea('isi_laporan', 'Isi Laporan', 'Masukkan isi laporan Anda disini...');
       echo inputFile('Upload Foto Aduan', '', 'foto');
       echo submitBtn('Submit')
       ?>

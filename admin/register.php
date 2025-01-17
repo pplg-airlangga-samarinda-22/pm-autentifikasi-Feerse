@@ -2,7 +2,7 @@
 require "../inc/conn.php";
 
 if (isset($_SESSION['username'])) {
-  header('location: ./index.php');
+  header('location: ../index.php');
 }
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
