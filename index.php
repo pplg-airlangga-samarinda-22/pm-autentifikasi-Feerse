@@ -18,19 +18,12 @@ echo headElem('Laporan Pengaduan')
     <!-- Navbar -->
     <?php
     require './components/index/nav.php';
-
     echo navElem('Pengaduan Masyarakat', $_SESSION['username'])
     ?>
+
     <!-- Sidebar -->
-    <?php
-    require './components/index/aside.php';
-    echo asideElem(
-      [
-        'Dashboard' => '#',
-        'Aduan' => './aduan.php'
-      ],
-    )
-    ?>
+    <?php require './components/index/sidebar.php' ?>
+
     <main class="p-4 md:ml-64 h-[100vh] bg-gray-50 pt-20">
       <div>
         <?php

@@ -63,7 +63,7 @@ echo headElem('Registrasi Admin')
       <h1 class="text-center text-3xl mb-8">Registrasi Akun Admin/Petugas</h1>
       <?php
       require '../components/inputFloat.php';
-      require '../components/submitBtn.php';
+      require '../components/btnSubmit.php';
       require '../components/inputSelect.php';
 
       echo inputFloat('nama', 'text', 'Nama Admin');
@@ -75,7 +75,7 @@ echo headElem('Registrasi Admin')
         'petugas' => 'Petugas',
       ]);
 
-      echo submitBtn('Submit')
+      echo btnSubmit('Submit')
       ?>
     </form>
   </div>

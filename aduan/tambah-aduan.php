@@ -36,11 +36,11 @@ echo headElem('Tambah Aduan')
       require "../components/inputTextArea.php";
       require "../components/inputFile.php";
       require "../components/inputSelect.php";
-      require "../components/submitBtn.php";
+      require "../components/btnSubmit.php";
 
       echo inputTextArea('isi_laporan', 'Isi Laporan', 'Masukkan isi laporan Anda disini...');
       echo inputFile('Upload Foto Aduan', '', 'foto');
-      echo submitBtn('Submit')
+      echo btnSubmit('Submit')
       ?>
     </form>
   </div>

@@ -38,12 +38,12 @@ echo headElem('Login Admin')
       <h1 class="text-3xl mb-8 text-center">Login Admin/Petugas</h1>
       <?php
       require '../components/input.php';
-      require '../components/submitBtn.php';
+      require '../components/btnSubmit.php';
 
       echo input('username', 'text', 'Username');
       echo input('password', 'password', 'Password');
 
-      echo submitBtn('Login')
+      echo btnSubmit('Login')
       ?>
     </form>
   </div>

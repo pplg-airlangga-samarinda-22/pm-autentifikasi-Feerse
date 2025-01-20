@@ -1,18 +1,20 @@
 <?php
 require './inc/conn.php';
-if (empty($_SESSION['nik'])) {
-  header("location: ./login.php");
+
+if (empty($_SESSION['level'])) {
+  header('location: ./login.php');
 }
-$nik = (isset($_SESSION['nik'])) ? $_SESSION['nik'] : '';
+
 $no = 0;
-$sql = "SELECT * FROM pengaduan where nik=? order by id_pengaduan desc";
-$pengaduan = $conn->execute_query($sql, [$nik])->fetch_all(MYSQLI_ASSOC);
+$sql = "SELECT * FROM petugas";
+$items = $conn->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <?php
 require './components/head.php';
-echo headElem('Pengaduan');
+echo headElem('Petugas');
 ?>
 
 <body>
@@ -35,7 +37,7 @@ echo headElem('Pengaduan');
               <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 <?php
                 require './components/btnAdd.php';
-                echo btnAdd('./aduan/tambah-aduan.php', 'Tambah Aduan')
+                echo btnAdd('./petugas/tambah-petugas.php', 'Tambah Petugas')
                 ?>
               </div>
             </div>
@@ -43,20 +45,20 @@ echo headElem('Pengaduan');
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <?php
                 require './components/thead.php';
-                echo thead(['No', 'Tanggal Pengaduan', 'Isi Laporan', 'Status', 'Foto'])
+                echo thead(['No', 'Nama', 'Telepon', 'Username', 'Level'])
                 ?>
                 <tbody>
                   <?php
                   require './components/dropdownActionTable.php';
-                  foreach ($pengaduan as $item) { ?>
+                  foreach ($items as $item) { ?>
                     <tr class="border-b dark:border-gray-700">
                       <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?= ++$no ?></th>
-                      <td class="px-4 py-3"><?= $item['tgl_pengaduan'] ?></td>
-                      <td class="px-4 py-3"><?= $item['isi_laporan'] ?></td>
-                      <td class="px-4 py-3"><?= ($item['status'] == '0') ? 'Menunggu' : (($item['status'] == 'proses') ? 'Diproses' : 'Selesai'); ?></td>
-                      <td class="px-4 py-3"><img src="./assets/aduan/<?= $item['foto'] ?>" alt="<?= $item['foto'] ?>" width="64px" height="64px"></td>
+                      <td class="px-4 py-3"><?= $item['nama_petugas'] ?></td>
+                      <td class="px-4 py-3"><?= $item['telp'] ?></td>
+                      <td class="px-4 py-3"><?= $item['username'] ?></td>
+                      <td class="px-4 py-3"><?= $item['level'] ?></td>
                       <?php
-                      echo dropdownActionTable($no, "./aduan/edit-aduan.php?id=$item[id_pengaduan]");
+                      echo dropdownActionTable($no, "./petugas/edit-petugas.php?id=$item[id_petugas]");
                       ?>
                     </tr>
                   <?php } ?>

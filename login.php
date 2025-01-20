@@ -42,8 +42,8 @@ echo headElem('Login Pengguna')
       echo input('username', 'text', 'Username');
       echo input('password', 'password', 'Password');
 
-      require "./components/submitBtn.php";
-      echo submitBtn('Login')
+      require "./components/btnSubmit.php";
+      echo btnSubmit('Login')
       ?>
       <div>
         <a href="./register.php" class="text-sm font-medium text-blue-700 hover:underline">Ingin buat akun?</a>

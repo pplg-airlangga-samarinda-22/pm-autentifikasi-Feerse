@@ -1,10 +1,11 @@
 <?php
-function inputSelect($nameId, $label, $options = [])
+function inputSelect($nameId, $label, $options = [], $selectedValue = null)
 {
   $optionsHtml = '';
 
   foreach ($options as $value => $text) {
-    $optionsHtml .= "<option value=\"$value\">$text</option>";
+    $isSelected = ($value === $selectedValue) ? 'selected' : '';
+    $optionsHtml .= "<option value=\"$value\" $isSelected>$text</option>";
   }
 
   return "

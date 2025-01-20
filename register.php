@@ -41,14 +41,14 @@ echo headElem('Registrasi Pengguna')
       <h1 class="text-center text-3xl mb-8">Registrasi Akun Masyarakat</h1>
       <?php
       require './components/inputFloat.php';
-      require './components/submitBtn.php';
+      require './components/btnSubmit.php';
 
       echo inputFloat('nik', 'text', 'NIK');
       echo inputFloat('username', 'text', 'Username');
       echo inputFloat('telepon', 'tel', 'Telepon');
       echo inputFloat('password', 'password', 'Password');
 
-      echo submitBtn('Submit')
+      echo btnSubmit('Submit')
       ?>
       <div>
         <a href="./login.php" class="text-sm font-medium text-blue-700 hover:underline">Sudah punya akun?</a>

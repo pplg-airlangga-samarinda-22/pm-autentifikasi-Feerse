@@ -49,7 +49,7 @@ echo headElem('Edit Aduan')
       require "../components/inputTextArea.php";
       require "../components/inputFile.php";
       require "../components/inputSelect.php";
-      require "../components/submitBtn.php";
+      require "../components/btnSubmit.php";
 
       echo inputTextArea('isi_laporan', 'Isi Laporan', 'Masukkan isi laporan Anda disini...', $row['isi_laporan']);
       ?>
@@ -57,7 +57,7 @@ echo headElem('Edit Aduan')
       <img src="../assets/aduan/<?= $row["foto"] ?>" alt="<?= $row["foto"] ?>" class="rounded-md mb-5">
       <?php
       echo inputFile('Upload Foto Aduan', '', 'foto');
-      echo submitBtn('Submit')
+      echo btnSubmit('Submit')
       ?>
     </form>
   </div>
