@@ -6,7 +6,7 @@ if (empty($_SESSION['level'])) {
 }
 
 $no = 0;
-$sql = "SELECT * FROM petugas order by id_petugas desc";
+$sql = "SELECT * FROM masyarakat";
 $items = $conn->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ $items = $conn->execute_query($sql)->fetch_all(MYSQLI_ASSOC);
 
 <?php
 require './components/head.php';
-echo headElem('Petugas');
+echo headElem('Masyarakat');
 ?>
 
 <body>
@@ -37,7 +37,7 @@ echo headElem('Petugas');
               <div class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
                 <?php
                 require './components/btnAdd.php';
-                echo btnAdd('./petugas/tambah-petugas.php', 'Tambah Petugas')
+                echo btnAdd('./masyarakat/tambah-masyarakat.php', 'Tambah Masyarakat')
                 ?>
               </div>
             </div>
@@ -45,7 +45,7 @@ echo headElem('Petugas');
               <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <?php
                 require './components/thead.php';
-                echo thead(['No', 'Nama', 'Telepon', 'Username', 'Level'])
+                echo thead(['No', 'NIK', 'Nama', 'Username', 'Telepon'])
                 ?>
                 <tbody>
                   <?php
@@ -53,12 +53,12 @@ echo headElem('Petugas');
                   foreach ($items as $item) { ?>
                     <tr class="border-b dark:border-gray-700">
                       <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?= ++$no ?></th>
-                      <td class="px-4 py-3"><?= $item['nama_petugas'] ?></td>
-                      <td class="px-4 py-3"><?= $item['telp'] ?></td>
+                      <td class="px-4 py-3"><?= $item['nik'] ?></td>
+                      <td class="px-4 py-3"><?= $item['nama'] ?></td>
                       <td class="px-4 py-3"><?= $item['username'] ?></td>
-                      <td class="px-4 py-3"><?= $item['level'] ?></td>
+                      <td class="px-4 py-3"><?= $item['telp'] ?></td>
                       <?php
-                      echo dropdownActionTable($no, "./petugas/edit-petugas.php?id=$item[id_petugas]", "./petugas/hapus-petugas.php?id=$item[id_petugas]");
+                      echo dropdownActionTable($no, "./masyarakat/edit-masyarakat.php?nik=$item[nik]", "./masyarakat/hapus-masyarakat.php?nik=$item[nik]");
                       ?>
                     </tr>
                   <?php } ?>

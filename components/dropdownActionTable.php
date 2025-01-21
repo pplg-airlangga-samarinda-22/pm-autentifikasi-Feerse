@@ -1,5 +1,5 @@
 <?php
-function dropdownActionTable($no, $editLink)
+function dropdownActionTable($no, $editLink, $deleteLink = null)
 {
   return "<td class=\"px-4 py-3 flex items-center justify-end\">
   <button id=\"$no-dropdown-button\" data-dropdown-toggle=\"$no-dropdown\" class=\"inline-flex items-center p-0.5 text-sm font-medium text-center text-gray-500 hover:text-gray-800 rounded-lg focus:outline-none dark:text-gray-400 dark:hover:text-gray-100\" type=\"button\">
@@ -17,7 +17,7 @@ function dropdownActionTable($no, $editLink)
       </li>
     </ul>
     <div class=\"py-1\">
-      <a href=\"#\" class=\"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white\">Delete</a>
+      <a href=\"$deleteLink\" class=\"block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white\">Delete</a>
     </div>
   </div>
   </td>";
