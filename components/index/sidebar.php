@@ -4,6 +4,7 @@ if (isset($_SESSION['level'])) {
   echo asideElem(
     [
       'Dashboard' => './index.php',
+      'Pengaduan' => './pengaduan.php',
       'Masyarakat' => './masyarakat.php',
       'Petugas' => './petugas.php',
       'Laporan' => './laporan.php',

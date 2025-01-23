@@ -1,6 +1,6 @@
 <?php
 require_once "./inc/conn.php";
-if (empty($_SESSION['nik']) && empty($_SESSION['level'])) {
+if (empty($_SESSION['nik']) && empty($_SESSION['level']) && empty($_SESSION['id'])) {
   header("location: ./login.php");
 }
 ?>

@@ -11,10 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   $sql = "SELECT * FROM petugas WHERE username=? AND password=?";
   $row = $conn->execute_query($sql, [$username, $password]);
+  $data = $row->fetch_assoc();
 
   if (mysqli_num_rows($row) == 1) {
     $_SESSION['username'] = $username;
-    $_SESSION['level'] = mysqli_fetch_assoc($row)["level"];
+    $_SESSION['level'] = $data['level'];
+    $_SESSION['id'] = $data['id_petugas'];
 
     header("location: ../index.php");
   } else {
